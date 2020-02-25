@@ -104,30 +104,23 @@ export default class SortableTable extends Component {
 							>
 								Average
 							</Table.HeaderCell>
-							<Table.HeaderCell
-								sorted={column === 'link' ? direction : null}
-								onClick={this.handleSort('link')}
-							>
-								Player News
-							</Table.HeaderCell>
 						</Table.Row>
 					</Table.Header>
 					<Table.Body>
 						{currentVisibleData.map(({ name, rank, position, bye, best, worst, average, link }, idx) => {
 							return (
 								<Table.Row key={idx}>
-									<Table.Cell>{name}</Table.Cell>
+									<Table.Cell>
+										<a href={link} target="blank">
+											{name}
+										</a>
+									</Table.Cell>
 									<Table.Cell>{rank}</Table.Cell>
 									<Table.Cell>{position}</Table.Cell>
 									<Table.Cell>{bye}</Table.Cell>
 									<Table.Cell>{best}</Table.Cell>
 									<Table.Cell>{worst}</Table.Cell>
 									<Table.Cell>{average}</Table.Cell>
-									<Table.Cell>
-										<a href={link} target="_blank">
-											Click Here
-										</a>
-									</Table.Cell>
 								</Table.Row>
 							);
 						})}
